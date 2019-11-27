@@ -13,7 +13,6 @@
 ### 이미지 삭제
 - `docker image rm`
 - `ex) docker image rm webserver:1.0`
-
 ## 컨테이너 관련 명령어
 ### 컨테이너 생성
 - `docker create`
@@ -24,6 +23,7 @@
 ### 컨테이너 삭제
 - `docker rm`
 - 컨테이너만 삭제되고 이미지는 삭제되지 않음
+- 구동되고있는 컨테이너는 -f 옵션을 사용해 강제로 종료 + 
 ### 컨테이너에 표준 입력(stdin)과 표준 출력(stdout)을 연결
 - `docker attach`
 ### 컨테이너 생성 및  구동
