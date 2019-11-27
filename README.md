@@ -46,20 +46,39 @@ docker run -dit -p 8080:80 httpd --name apache /bin/bash
 - `docker log -f apache`
 
 ### 일괄 처리
-
+- windows는 powershell에서만 작동함
 #### 모든 컨테이너 정지
-`docker stop $(docker ps -a -q)`
+- `docker stop $(docker ps -a -q)`
 #### 모든 컨테이너 삭제
-`docker rm $(docker ps -a -q)`
+- `docker rm $(docker ps -a -q)`
 
 
 
 #### 모든 이미지 삭제
 
-`docker rmi $(docker images -q)`
+- `docker rmi $(docker images -q)`
 
 
 
 #### Exit 상태의 모든 컨테이너 삭제
 
 `docker rm $(docker ps --filter 'status=exited' -a -q)`
+
+## 잡다한 기술
+### 해당 컨테이너의 포트를 확인하는 방법
+```
+docker port httpd
+80/tcp -> 0.0.0.0:8080
+```
+### 검색
+`netstat -ano | findstr :873`
+- 각 포트별로 연결된 
+```
+ TCP    0.0.0.0:873            0.0.0.0:0              LISTENING       328
+ TCP    [::]:873               [::]:0                 LISTENING       328
+```
+`tasklist | findstr 328`
+```
+rsync.exe                      328 Services                   0      4,880 K
+
+```
