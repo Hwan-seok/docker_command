@@ -41,3 +41,25 @@
 ```
 docker run -dit -p 8080:80 httpd --name apache /bin/bash
 ```
+
+### 컨테이너 로그 확인
+- `docker log -f apache`
+
+### 일괄 처리
+
+#### 모든 컨테이너 정지
+`docker stop $(docker ps -a -q)`
+#### 모든 컨테이너 삭제
+`docker rm $(docker ps -a -q)`
+
+
+
+#### 모든 이미지 삭제
+
+`docker rmi $(docker images -q)`
+
+
+
+#### Exit 상태의 모든 컨테이너 삭제
+
+`docker rm $(docker ps --filter 'status=exited' -a -q)`
